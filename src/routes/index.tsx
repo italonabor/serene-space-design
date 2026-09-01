@@ -255,10 +255,6 @@ function Index() {
 
           <Reveal variant="reveal-right" delay={150}>
             <div className="relative mx-auto max-w-sm">
-              <div
-                className="absolute -inset-4 rounded-[2.5rem] opacity-70"
-                style={{ background: "var(--rose-soft)" }}
-              />
               <img
                 data-parallax
                 src="/images/hero.jpg"
