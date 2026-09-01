@@ -505,6 +505,22 @@ function Index() {
         </div>
       </section>
 
+      {/* FORMULÁRIO */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <Reveal>
+            <h2 className="font-display text-3xl md:text-4xl">Envie uma mensagem</h2>
+            <p className="mx-auto mt-4 max-w-xl text-foreground/75">
+              Prefere escrever? Preencha o formulário e sua mensagem será encaminhada diretamente
+              para o e-mail da Dra. Nayara.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <ContactForm />
+          </Reveal>
+        </div>
+      </section>
+
       {/* CONTATO / FOOTER */}
       <footer id="contato" className="py-20 md:py-28" style={{ background: "var(--olive)" }}>
         <div className="mx-auto max-w-4xl px-5 text-center" style={{ color: "#FFFFFF" }}>
