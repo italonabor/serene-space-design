@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { WhatsAppFloat, WHATSAPP_URL } from "@/components/WhatsAppFloat";
+import { ContactForm } from "@/components/ContactForm";
 import { useScrollReveal, useParallax } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
@@ -255,10 +256,6 @@ function Index() {
 
           <Reveal variant="reveal-right" delay={150}>
             <div className="relative mx-auto max-w-sm">
-              <div
-                className="absolute -inset-4 rounded-[2.5rem] opacity-70"
-                style={{ background: "var(--rose-soft)" }}
-              />
               <img
                 data-parallax
                 src="/images/hero.jpg"
@@ -377,39 +374,6 @@ function Index() {
         </div>
       </section>
 
-      {/* VÍDEO */}
-      <section className="py-20 md:py-28" style={{ background: "var(--gradient-warm)" }}>
-        <div className="mx-auto max-w-4xl px-5 text-center">
-          <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl">
-              Conheça meu espaço e minha abordagem
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-foreground/75">
-              Aperte o play e saiba como a psicoterapia pode transformar a sua rotina e trazer mais
-              leveza para os seus dias.
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <div
-              className="relative mt-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[2rem] border border-border"
-              style={{ background: "var(--sand)" }}
-            >
-              <img
-                src="/images/hero.jpg"
-                alt="Prévia do vídeo de apresentação do consultório"
-                className="absolute inset-0 h-full w-full object-cover object-top opacity-45"
-              />
-              <button
-                aria-label="Reproduzir vídeo de apresentação"
-                className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full text-2xl shadow-[var(--shadow-soft)] transition-transform duration-500 hover:scale-110"
-                style={{ background: "var(--gradient-rose)", color: "#fff" }}
-              >
-                ▶
-              </button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
       {/* ESPECIALIDADES */}
       <section id="especialidades" className="py-20 md:py-28">
@@ -539,6 +503,22 @@ function Index() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FORMULÁRIO */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <Reveal>
+            <h2 className="font-display text-3xl md:text-4xl">Envie uma mensagem</h2>
+            <p className="mx-auto mt-4 max-w-xl text-foreground/75">
+              Prefere escrever? Preencha o formulário e sua mensagem será encaminhada diretamente
+              para o e-mail da Dra. Nayara.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <ContactForm />
+          </Reveal>
         </div>
       </section>
 
