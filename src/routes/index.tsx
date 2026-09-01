@@ -530,19 +530,9 @@ function Index() {
       <footer
         id="contato"
         className="relative overflow-hidden py-20 md:py-28"
-        style={{
-          background: "linear-gradient(180deg, var(--olive) 0%, #303724 100%)",
-        }}
+        style={{ background: "var(--olive)" }}
       >
-        {/* Efeitos de luz de fundo suaves */}
-        <div
-          className="pointer-events-none absolute -left-20 top-1/4 h-72 w-72 rounded-full opacity-20 blur-3xl"
-          style={{ background: "var(--rose-soft)" }}
-        />
-        <div
-          className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full opacity-15 blur-3xl"
-          style={{ background: "#25D366" }}
-        />
+
 
         <div className="relative mx-auto max-w-4xl px-5 text-center" style={{ color: "#FFFFFF" }}>
           <Reveal>
