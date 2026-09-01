@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { WhatsAppFloat, WHATSAPP_URL } from "@/components/WhatsAppFloat";
+import { WhatsAppFloat, WHATSAPP_URL, WhatsAppIcon } from "@/components/WhatsAppFloat";
 import { ContactForm } from "@/components/ContactForm";
 import { useScrollReveal, useParallax } from "@/hooks/use-scroll-reveal";
+import { Mail, Instagram } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -244,11 +246,12 @@ function Index() {
               Um espaço acolhedor e seguro para você se reconectar consigo mesma. Porque uma
               mente bem cuidada muda toda a sua vida.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn-primary">
-                Agendar pelo WhatsApp
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn-whatsapp w-full sm:w-auto">
+                <WhatsAppIcon className="h-5 w-5 fill-current shrink-0" />
+                <span>Agendar pelo WhatsApp</span>
               </a>
-              <a href="#sobre" className="btn-olive" style={{ background: "transparent", color: "var(--olive)", border: "1px solid var(--olive)" }}>
+              <a href="#sobre" className="btn-olive w-full sm:w-auto" style={{ background: "transparent", color: "var(--olive)", border: "1px solid var(--olive)" }}>
                 Conheça a Dra. Nayara
               </a>
             </div>
@@ -367,8 +370,9 @@ function Index() {
             <p className="mt-7 font-display text-xl text-rose-strong">
               Dê o primeiro passo para cuidar de quem mais importa: você.
             </p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn-primary mt-6">
-              Falar com a Dra. Nayara
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn-whatsapp mt-6 w-full sm:w-auto inline-flex">
+              <WhatsAppIcon className="h-5 w-5 fill-current shrink-0" />
+              <span>Falar com a Dra. Nayara</span>
             </a>
           </Reveal>
         </div>
@@ -523,47 +527,99 @@ function Index() {
       </section>
 
       {/* CONTATO / FOOTER */}
-      <footer id="contato" className="py-20 md:py-28" style={{ background: "var(--olive)" }}>
-        <div className="mx-auto max-w-4xl px-5 text-center" style={{ color: "#FFFFFF" }}>
+      <footer
+        id="contato"
+        className="relative overflow-hidden py-20 md:py-28"
+        style={{
+          background: "linear-gradient(180deg, var(--olive) 0%, #303724 100%)",
+        }}
+      >
+        {/* Efeitos de luz de fundo suaves */}
+        <div
+          className="pointer-events-none absolute -left-20 top-1/4 h-72 w-72 rounded-full opacity-20 blur-3xl"
+          style={{ background: "var(--rose-soft)" }}
+        />
+        <div
+          className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full opacity-15 blur-3xl"
+          style={{ background: "#25D366" }}
+        />
+
+        <div className="relative mx-auto max-w-4xl px-5 text-center" style={{ color: "#FFFFFF" }}>
           <Reveal>
-            <h2 className="font-display text-3xl md:text-4xl">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-white/90 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse" />
+              ATENDIMENTO ON-LINE E PRESENCIAL
+            </span>
+
+            <h2 className="font-display text-3xl md:text-5xl mt-6 leading-tight">
               Nunca é tarde para se olhar com amor.
             </h2>
-            <p className="mx-auto mt-5 max-w-xl opacity-90">
-              Não deixe seu bem-estar para depois. Agende seu horário hoje mesmo.
+            <p className="mx-auto mt-5 max-w-xl text-base md:text-lg text-white/85 leading-relaxed">
+              Não deixe seu bem-estar para depois. Dê o primeiro passo e agende seu horário com total sigilo e acolhimento.
             </p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn-primary mt-9">
-              Agendar pelo WhatsApp
-            </a>
+
+            {/* Botão de WhatsApp em destaque e responsivo */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-whatsapp w-full sm:w-auto text-base sm:text-lg py-3.5 px-8 shadow-2xl hover:scale-105 active:scale-95"
+              >
+                <WhatsAppIcon className="h-6 w-6 fill-current shrink-0" />
+                <span>Agendar pelo WhatsApp</span>
+              </a>
+            </div>
           </Reveal>
 
           <Reveal delay={150}>
-            <div className="mt-14 grid gap-6 border-t border-white/20 pt-10 text-sm sm:grid-cols-3">
-              <div>
-                <p className="opacity-70">WhatsApp</p>
-                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="mt-1 block">
+            {/* Grid de Contatos Modernos e Responsivos */}
+            <div className="mt-14 grid gap-4 border-t border-white/20 pt-10 text-sm sm:grid-cols-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col items-center justify-center rounded-2xl bg-white/5 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/10"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366]/20 text-[#25D366] transition-transform duration-300 group-hover:scale-110">
+                  <WhatsAppIcon className="h-6 w-6 fill-current" />
+                </div>
+                <p className="mt-3 text-xs font-medium uppercase tracking-wider text-white/70">WhatsApp</p>
+                <span className="mt-1 font-semibold text-white group-hover:text-[#25D366] transition-colors">
                   +55 19 98430-3943
-                </a>
-              </div>
-              <div>
-                <p className="opacity-70">E-mail</p>
-                <a href="mailto:contato@nayjustimiano.com.br" className="mt-1 block break-all">
+                </span>
+              </a>
+
+              <a
+                href="mailto:contato@nayjustimiano.com.br"
+                className="group flex flex-col items-center justify-center rounded-2xl bg-white/5 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/10"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-transform duration-300 group-hover:scale-110">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <p className="mt-3 text-xs font-medium uppercase tracking-wider text-white/70">E-mail</p>
+                <span className="mt-1 font-semibold text-white break-all group-hover:underline">
                   contato@nayjustimiano.com.br
-                </a>
-              </div>
-              <div>
-                <p className="opacity-70">Instagram</p>
-                <a
-                  href="https://www.instagram.com/nayjustimiano_psi/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-1 block"
-                >
+                </span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/nayjustimiano_psi/"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col items-center justify-center rounded-2xl bg-white/5 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/10"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-pink-500/20 text-[#FF6584] transition-transform duration-300 group-hover:scale-110">
+                  <Instagram className="h-5 w-5" />
+                </div>
+                <p className="mt-3 text-xs font-medium uppercase tracking-wider text-white/70">Instagram</p>
+                <span className="mt-1 font-semibold text-white group-hover:text-[#FF6584] transition-colors">
                   @nayjustimiano_psi
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
-            <p className="mt-10 text-xs opacity-70">
+
+            <p className="mt-10 text-xs text-white/60">
               Atendimento Especializado · Dra. Nayara Justimiano · Psicóloga CRP 06/162278
             </p>
           </Reveal>
