@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { WhatsAppFloat, WHATSAPP_URL } from "@/components/WhatsAppFloat";
+import { ContactForm } from "@/components/ContactForm";
 import { useScrollReveal, useParallax } from "@/hooks/use-scroll-reveal";
 
 export const Route = createFileRoute("/")({
